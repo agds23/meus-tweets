@@ -17,5 +17,15 @@
     <!-- A extensão vai injetar os tweets aqui! -->
   </div>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    window.addEventListener("message", function(e) {
+      if (e.data === "atualizarTwitterEmbeds") {
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load();
+        }
+      }
+    });
+</script>
+
 </body>
 </html>
