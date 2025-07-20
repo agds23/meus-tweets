@@ -6,8 +6,23 @@
   <style>
     body { font-family: Arial, sans-serif; background: #f6fff6; padding: 16px; }
     h2 { color: #159947; }
-    #tweets-dinamicos { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 24px; }
-    #tweets-dinamicos > div { min-width: 320px; max-width: 380px; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px #0001; padding: 16px; }
+    #tweets-dinamicos {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    #tweets-dinamicos > div {
+      min-width: 320px;
+      max-width: 380px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
     strong { color: #003914; }
   </style>
 </head>
@@ -25,7 +40,7 @@
         }
       }
     });
-</script>
-
+  </script>
 </body>
 </html>
+
