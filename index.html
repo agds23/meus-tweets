@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Últimos tweets de @leandroruschel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fa;
+      max-width: 600px;
+      margin: 24px auto;
+      padding: 24px;
+      color: #222;
+    }
+    h2 { margin-bottom: 18px; }
+    .tweet-embed { margin-bottom: 34px; }
+    .reload-btn {
+      padding: 6px 18px;
+      margin-bottom: 22px;
+      font-size: 1em;
+      background: #1da1f2;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .reload-btn:hover { background: #1991da; }
+  </style>
+</head>
+<body>
+  <h2>Últimos 4 tweets de @leandroruschel</h2>
+  <button class="reload-btn" onclick="loadTweets()">Atualizar tweets</button>
+  <div id="tweets"></div>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    // Cole aqui os links dos 4 tweets mais recentes (você pode automatizar isso depois)
+    const tweetLinks = [
+      "https://twitter.com/leandroruschel/status/1946678217674608949",
+      "https://twitter.com/leandroruschel/status/1946668860754506077",
+      "https://twitter.com/leandroruschel/status/1946649400674189389",
+      "https://twitter.com/leandroruschel/status/1946611516264196107"
+    ];
+
+    function loadTweets() {
+      const tweetsDiv = document.getElementById('tweets');
+      tweetsDiv.innerHTML = '';
+      tweetLinks.forEach(link => {
+        tweetsDiv.innerHTML += `
+          <div class="tweet-embed">
+            <blockquote class="twitter-tweet"><a href="${link}"></a></blockquote>
+          </div>
+        `;
+      });
+      // Recarrega o script do Twitter para os novos embeds
+      if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load();
+      }
+    }
+
+    // Carrega ao abrir
+    loadTweets();
+  </script>
+</body>
+</html>
